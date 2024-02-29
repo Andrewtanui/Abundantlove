@@ -1,0 +1,242 @@
+/* RESET STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+  --blue: #0a0c10;
+  --blue-sudo: #1e242f;
+  --white: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font: clamp(16px, 2vw, 22px) / 1.7 "Montserrat", sans-serif;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  width: 100%;
+  height: 100vh; /* Set height to viewport height */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: background-color 0.6s ease;
+  z-index: 999;
+}
+
+.navbar.opaque {
+  background-color: rgb(149,38,61);; /* Change to opaque black */
+}
+
+.navbar-logo img {
+  max-width: 100px; /* Adjust logo size as needed */
+  margin-left: 50px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+}
+
+.navbar-links li {
+  margin-right: 20px;
+}
+
+.navbar-links li:last-child {
+  margin-right: 0;
+}
+
+.navbar-links a {
+  margin-right: 18px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  transition: color 0.3s ease;
+  letter-spacing: 5px;
+  font-size: 17px;
+}
+
+.navbar-links a:hover {
+  color: yellow;
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar-toggle .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-title h1 {
+  font-size: 70px; /* Adjust as needed */
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px; /* Add space between title and description */
+  color: rgb(149,38,61);;
+}
+
+.hero-description p {
+  font-size: 24px; /* Adjust as needed */
+  color: #fff;
+}
+
+
+
+/* MAIN STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.main-section {
+  max-width: 1400px;
+  padding: 0 30px;
+  margin: 120px auto;
+  margin-left: 40px;
+}
+
+.main-section section + section {
+  margin-top: 120px;
+}
+
+.main-section .grid {
+  display: grid;
+  grid-column-gap: 60px;
+  grid-template-columns: 2fr 1fr;
+}
+
+.main-section .grid-alternate {
+  grid-template-columns: 1fr 2fr;
+}
+
+.main-section .big-text {
+  max-width: 800px;
+  margin-left: auto;
+  font-size: clamp(24px, 2vw, 32px);
+}
+
+.main-section figure {
+  position: relative;
+  box-shadow: -1rem 1rem 3rem -2rem rgba(0, 0, 0, 0.5);
+}
+
+.main-section figure::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(149, 38, 60, 0.249);;
+  transition: clip-path 0.3s;
+}
+
+.main-section figure img {
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s 0.3s;
+}
+
+.main-section figure figcaption {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgb(149,38,61);;
+  mix-blend-mode: overlay;
+  transition: clip-path 0.3s 0.9s;
+}
+
+.main-section figure::before,
+.main-section figure figcaption {
+  clip-path: inset(0 0 0 100%);
+}
+
+.main-section figure.is-animated::before,
+.main-section figure.is-animated img,
+.main-section figure.is-animated figcaption {
+  clip-path: inset(0);
+}
+
+
+/* MQ STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (max-width: 1000px) {
+  .hero-section span {
+    display: block;
+  }
+
+  .main-section {
+    margin: 60px auto;
+  }
+
+  .main-section section + section {
+    margin-top: 60px;
+  }
+
+  .main-section .grid {
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+  }
+
+  .main-section .grid-alternate figure {
+    order: -1;
+  }
+}
+
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 5px;
+  background: var(--white);
+}
+
+.page-footer a {
+  margin-left: 4px;
+}

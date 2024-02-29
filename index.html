@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abundant Love</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="img/logo1.png" alt="Logo">
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Gallery</a></li>
+    </ul>
+    <div class="navbar-toggle">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <img src="img/hero.jpg" alt="Hero Image" class="hero-image">
+    <div class="hero-content">
+      <div class="hero-title">
+        <h1>ABUNDANT LOVE CHURCH</h1>
+      </div>
+      <div class="hero-description">
+        <p>Welcome to our new church. All are welcome!</p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="main-section">
+    <section class="grid">
+      <figure>
+        <img src="img/pastorrenee.JPG" alt="">
+        <figcaption>Pastor Renee</figcaption>
+      </figure>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, dignissimos quo hic repellendus libero tempora perferendis numquam ipsam minus doloribus error quas! Accusantium, obcaecati fugit? Eaque culpa ea maxime consectetur.</p>
+    </section>
+    <section class="big-text">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae praesentium, ea nam est sit repellendus blanditiis nisi optio facilis cumque rem! Laudantium eos minus quas molestias, ratione sit? Necessitatibus, illum.</p>
+    </section>
+    <section class="grid grid-alternate">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, dignissimos quo hic repellendus libero tempora perferendis numquam ipsam minus doloribus error quas! Accusantium, obcaecati fugit? Eaque culpa ea maxime consectetur.</p>
+      <figure>
+        <img src="img/praise.JPG" alt="">
+        <figcaption>Praise</figcaption>
+      </figure>
+    </section>
+    <section class="big-text">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae praesentium, ea nam est sit repellendus blanditiis nisi optio facilis cumque rem! Laudantium eos minus quas molestias, ratione sit? Necessitatibus, illum.</p>
+    </section>
+    <section class="grid">
+      <figure>
+        <img src="img/inst.JPG" alt="">
+        <figcaption>Prayer</figcaption>
+      </figure>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, dignissimos quo hic repellendus libero tempora perferendis numquam ipsam minus doloribus error quas! Accusantium, obcaecati fugit? Eaque culpa ea maxime consectetur.</p>
+    </section>
+    <section class="big-text">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae praesentium, ea nam est sit repellendus blanditiis nisi optio facilis cumque rem! Laudantium eos minus quas molestias, ratione sit? Necessitatibus, illum.</p>
+    </section>
+    <section class="grid grid-alternate">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, dignissimos quo hic repellendus libero tempora perferendis numquam ipsam minus doloribus error quas! Accusantium, obcaecati fugit? Eaque culpa ea maxime consectetur.</p>
+      <figure>
+        <img src="img/P1277822.JPG" alt="">
+        <figcaption>Cinque Terre</figcaption>
+      </figure>
+    </section>
+  </section>
+
+  <script>
+    const targets = document.querySelectorAll(".main-section .grid figure");
+const isAnimated = "is-animated";
+const threshold = 0.5;
+
+function callback(entries, observer) {
+  entries.forEach((entry) => {
+    const elem = entry.target;
+    if (entry.intersectionRatio >= threshold) {
+      elem.classList.add(isAnimated);
+      //observer.unobserve(elem);
+    } else {
+      elem.classList.remove(isAnimated);
+    }
+  });
+}
+
+const observer = new IntersectionObserver(callback, { threshold });
+for (const target of targets) {
+  observer.observe(target);
+}
+
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>
